@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ashish Mishra — Portfolio</title>
+  <meta name="description" content="Ashish Mishra — Python Developer / Data Scientist. AI/ML, LLM (RLHF, SFT, DPO), PyQt/Tkinter, C++ Qt/QML." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Glassmorphism Header -->
+  <header class="header glass">
+    <a class="brand" href="#home" aria-label="Go to home">
+      <div class="avatar" aria-hidden="true">AM</div>
+      <div class="brand-text">
+        <strong>Ashish Mishra</strong>
+        <span>Python Data Scientist</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#resume">Resume</a>
+      <!-- <a class="nav-link" href="#writing">Writing</a> -->
+      <a class="nav-link" href="#certifications">Certifications</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <div class="theme">
+      <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main id="home" class="content">
+    <!-- HERO with Parallax -->
+    <section class="section hero observe" aria-labelledby="hero-title">
+      <div class="parallax" aria-hidden="true">
+        <span class="layer l1"></span>
+        <span class="layer l2"></span>
+        <span class="layer l3"></span>
+      </div>
+      <div class="hero-inner">
+        <h1 id="hero-title">
+          Building reliable AI & UI.
+          <span class="accent">Python • ML • LLM • Qt/QML</span>
+        </h1>
+        <p class="lead">
+          Python Developer / Data Scientist with hands-on work in AI/ML (RLHF, SFT, DPO), GUI apps (PyQt, Tkinter), and C++ Qt/QML.
+          Currently at Turing (US). 
+        </p>
+        <div class="hero-ctas">
+          <a class="btn" href="#contact">Contact me</a>
+          <!-- Fixed: proper file + download -->
+          <a class="btn btn-outline" href="Ashish_Mishra%20(1).pdf" download target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section observe" aria-labelledby="about-title">
+      <header class="section-head">
+        <h2 id="about-title">About</h2>
+      </header>
+
+      <div class="grid two">
+        <!-- Left: Profile -->
+        <article class="card">
+          <h3>Profile</h3>
+          <p>
+            Software developer professional with 3+ Experience in Python Machine Learning, LLM and GUI Development. 
+            Consistent in delivering clean, error-free code to meet current or expected needs. 
+            Well-versed in Software trends and confident in multiple language, frameworks, and programming tools.
+          </p>
+        </article>
+
+        <!-- Right: SKILLS (replaces Highlights) -->
+        <article class="card">
+          <h3>Skills</h3>
+          <h4 class="muted">Technology worked on</h4>
+          <ul class="list" id="skillsListTech"></ul>
+
+          <h4 class="muted" style="margin-top:12px">Operating System, Framework & Tool Used</h4>
+          <ul class="list" id="skillsListTools"></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS (cards, no demo/code buttons) -->
+    <section id="projects" class="section observe" aria-labelledby="projects-title">
+      <header class="section-head">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-sub">Selected work & experiments</p>
+      </header>
+      <div class="grid three" id="projectsGrid"><!-- populated by JS --></div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="section observe" aria-labelledby="resume-title">
+      <header class="section-head">
+        <h2 id="resume-title">Resume</h2>
+        <p class="section-sub">Experience & Education</p>
+      </header>
+
+      <div class="timeline" id="experience"><!-- populated by JS --></div>
+
+      <div class="edu">
+        <h3>Education</h3>
+        <ul class="edu-list" id="education"><!-- populated by JS --></ul>
+      </div>
+
+      <div class="resume-actions">
+        <a class="btn" href="Ashish_Mishra%20(1).pdf" download target="_blank" rel="noopener">📄 Download PDF</a>
+      </div>
+    </section>
+
+    <!-- WRITING / BLOG -->
+    <!-- <section id="writing" class="section observe" aria-labelledby="writing-title"> -->
+      <!-- <header class="section-head"> -->
+        <!-- <h2 id="writing-title">Writing</h2> -->
+        <!-- <p class="section-sub">Notes, articles & snippets</p> -->
+      <!-- </header> -->
+      <!-- <div class="grid two" id="postsGrid">populated by JS</div> -->
+    <!-- </section> -->
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section observe" aria-labelledby="certs-title">
+      <header class="section-head">
+        <h2 id="certs-title">Certifications</h2>
+        <p class="section-sub">Verified learning & training</p>
+      </header>
+
+      <div class="grid three" id="certGrid"><!-- populated by JS --></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section observe" aria-labelledby="contact-title">
+      <header class="section-head">
+        <h2 id="contact-title">Contact</h2>
+        <p class="section-sub">Let’s build something great together</p>
+      </header>
+
+      <div class="grid two">
+        <form id="contactForm" class="card form" novalidate>
+          <label>
+            <span>Name</span>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label class="full">
+            <span>Message</span>
+            <textarea id="message" name="message" rows="5" placeholder="How can I help?" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="btn" type="submit">Send</button>
+            <span id="formMsg" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <div class="card">
+          <h3>Direct</h3>
+          <ul class="contact-list">
+            <li>📧 <a id="emailLink" href="mailto:ashish.bipulmishra@gmail.com">ashish.bipulmishra@gmail.com</a></li>
+            <li>📱 <a href="tel:+917277159358">+91 72771 59358</a></li>
+            <li>🔗 <a href="https://www.linkedin.com/in/ashish-mishra-487b1b19b/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+          <p class="muted">Prefer email for faster response.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Ashish Mishra. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <button class="fab" id="toTop" aria-label="Scroll to top">↑</button>
+  <!-- EmailJS SDK (must load BEFORE script.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // yahan apna ACTUAL Public Key daalo (EmailJS dashboard → Account → API Keys)
+    emailjs.init({ publicKey: "6ywowVy1Idi3nUo5R" });
+  </script>
+
+  <!-- your app script -->
+  <script src="script.js" defer></script>
+
+</body>
+</html>
