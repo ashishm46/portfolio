@@ -64,7 +64,7 @@ const DATA = {
       location: "Los Angeles, United States",
       period: "Feb 2024 – Present",
       bullets: [
-        "Led SFT & DPO tasks; streamlined processes with measurable efficiency improvements.",
+        "Lead SFT & DPO tasks; streamlined processes with measurable efficiency improvements.",
         "Worked across LLM stacks (Meta LLaMA 3.1, RLHF, complex instruction following).",
         "Collaborated with stakeholders on Agentic AI and data visualization initiatives."
       ]
@@ -332,15 +332,24 @@ function initContact(){
     msg.textContent = "📨 Sending…";
 
     try {
+      // 1) Owner notification (to YOU)
       await emailjs.send(
-        "service_c27pocc",     // ✅ your Service ID
-        "template_b3hud8m",    // ✅ your Template ID
-        {
-          from_name: name,
-          reply_to: from,
-          message: text
-        }
+        "service_c27pocc",
+        "template_b3hud8m",
+        { from_name: name, reply_to: from, message: text }
       );
+
+      // 2) Auto-reply (to SENDER) — non-blocking if it fails
+      try {
+        await emailjs.send(
+          "service_c27pocc",
+          "template_2pf1n3g",
+          { from_name: name, reply_to: from, message: text }
+        );
+      } catch (autoErr) {
+        console.warn("Auto-reply failed:", autoErr);
+        // continue gracefully
+      }
 
       msg.style.color = "var(--text)";
       msg.textContent = "✅ Sent! I’ll reply soon.";
@@ -355,6 +364,7 @@ function initContact(){
     }
   });
 }
+
 
 
 /* ===== Parallax motion (mouse + scroll) ===== */
