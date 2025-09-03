@@ -335,22 +335,11 @@ function initContact(){
       // 1) Owner notification (to YOU)
       await emailjs.send(
         "service_c27pocc",     // ✅ your Service ID
-        "template_b3hud8m",    // ✅ sends to YOU
+        "template_b3hud8m",    // ✅ your Template ID
         {
           from_name: name,
           reply_to: from,
           message: text
-        }
-      );
-
-      // 🆕 Auto-reply to the user
-      await emailjs.send(
-        "service_c27pocc",     // ✅ same service ID
-        "template_2pf1n3g",    // 🆕 your auto-reply template
-        {
-          from_name: name,
-          reply_to: from,      // user’s email (used in To field)
-          message: text        // original message
         }
       );
 
