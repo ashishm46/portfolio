@@ -234,3 +234,37 @@ html[data-theme="light"] .glass{
 @media (max-width: 880px){
   .brand-text span{ display:none }
 }
+/* Generic responsive helpers */
+img, video { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+/* Mobile nav */
+.only-mobile { display: none; }
+
+@media (max-width: 880px){
+  .only-mobile { display: inline-grid; }
+
+  /* stack the nav in a floating panel */
+  .nav{
+    display: none;
+    position: fixed;
+    left: 12px; right: 12px; top: 56px;
+    flex-direction: column; gap: 8px;
+    padding: 12px; border: var(--border); background: var(--panel);
+    border-radius: 12px; box-shadow: var(--shadow); z-index: 80;
+  }
+  .nav.open{ display: flex; }
+
+  /* tighten paddings on small screens */
+  .section{ padding: 56px 16px; }
+  .hero-inner{ padding: 40px 20px; }
+  .hero h1{ font-size: clamp(1.6rem, 5vw + .6rem, 2.4rem); }
+}
+
+/* slightly earlier collapse for 3-col grids on mid screens */
+@media (max-width: 1024px){
+  .grid.three{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px){
+  .grid.three{ grid-template-columns: 1fr; }
+}
