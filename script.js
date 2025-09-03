@@ -334,22 +334,14 @@ function initContact(){
     try {
       // 1) Owner notification (to YOU)
       await emailjs.send(
-        "service_c27pocc",
-        "template_b3hud8m",
-        { from_name: name, reply_to: from, message: text }
+        "service_c27pocc",     // ✅ your Service ID
+        "template_b3hud8m",    // ✅ your Template ID
+        {
+          from_name: name,
+          reply_to: from,
+          message: text
+        }
       );
-
-      // 2) Auto-reply (to SENDER) — non-blocking if it fails
-      try {
-        await emailjs.send(
-          "service_c27pocc",
-          "template_2pf1n3g",
-          { from_name: name, reply_to: from, message: text }
-        );
-      } catch (autoErr) {
-        console.warn("Auto-reply failed:", autoErr);
-        // continue gracefully
-      }
 
       msg.style.color = "var(--text)";
       msg.textContent = "✅ Sent! I’ll reply soon.";
@@ -364,7 +356,6 @@ function initContact(){
     }
   });
 }
-
 
 
 /* ===== Parallax motion (mouse + scroll) ===== */
@@ -393,6 +384,24 @@ function initToTop(){
   const btn = document.getElementById("toTop");
   btn.addEventListener("click", ()=> window.scrollTo({ top:0, behavior:"smooth" }) );
 }
+function initMenu(){
+  const btn = document.getElementById("menuToggle");
+  const nav = document.getElementById("primaryNav");
+  if(!btn || !nav) return;
+
+  btn.addEventListener("click", ()=>{
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  // Close menu after clicking a link
+  nav.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", ()=>{
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 
 /* ===== Init ===== */
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -401,9 +410,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
   renderExperience();
   renderEducation();
   renderCerts();
-//   renderPosts();
+  // renderPosts();
 
   initTheme();
+  initMenu();   // ← add this
   initNav();
   initReveals();
   initContact();
@@ -412,3 +422,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   document.getElementById("year").textContent = new Date().getFullYear();
 });
+
