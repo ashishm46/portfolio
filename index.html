@@ -11,26 +11,31 @@
 </head>
 <body>
   <!-- Glassmorphism Header -->
-  <header class="header glass">
-    <a class="brand" href="#home" aria-label="Go to home">
-      <div class="avatar" aria-hidden="true">AM</div>
-      <div class="brand-text">
-        <strong>Ashish Mishra</strong>
-        <span>Python Data Scientist</span>
-      </div>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#projects">Projects</a>
-      <a class="nav-link" href="#resume">Resume</a>
-      <!-- <a class="nav-link" href="#writing">Writing</a> -->
-      <a class="nav-link" href="#certifications">Certifications</a>
-      <a class="nav-link" href="#contact">Contact</a>
-    </nav>
-    <div class="theme">
-      <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle dark mode">🌙</button>
+<header class="header glass">
+  <a class="brand" href="#home" aria-label="Go to home">
+    <div class="avatar" aria-hidden="true">AM</div>
+    <div class="brand-text">
+      <strong>Ashish Mishra</strong>
+      <span>Python Data Scientist</span>
     </div>
-  </header>
+  </a>
+
+  <!-- add id for JS toggling -->
+  <nav class="nav" id="primaryNav" aria-label="Primary">
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#resume">Resume</a>
+    <a class="nav-link" href="#certifications">Certifications</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </nav>
+
+  <div class="theme">
+    <!-- new: hamburger on small screens -->
+    <button id="menuToggle" class="btn btn-ghost only-mobile" aria-expanded="false" aria-controls="primaryNav" aria-label="Menu">☰</button>
+    <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle dark mode">🌙</button>
+  </div>
+</header>
+
 
   <main id="home" class="content">
     <!-- HERO with Parallax -->
